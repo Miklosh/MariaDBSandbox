@@ -5,15 +5,16 @@ import org.hibernate.annotations.DiscriminatorOptions;
 
 import javax.annotation.Generated;
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Mikola on 19.09.14.
  */
 @Entity
 @Table(name = "USER")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "USER_TYPE")
-public abstract class User {
+public abstract class User implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
