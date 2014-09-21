@@ -13,8 +13,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "USER")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "USER_TYPE")
-public abstract class User implements Serializable{
+@DiscriminatorColumn(name = "USER_TYPE",discriminatorType = DiscriminatorType.STRING)
+public class User implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
